@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import Logo from "../Assets/logo.jpg";
 import "../Assets/css/todo.css";
-import InputBase from "@material-ui/core/InputBase";
-import SearchIcon from "@material-ui/icons/Search";
 
 export default class SideNav extends Component {
   render() {

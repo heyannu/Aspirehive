@@ -5,6 +5,38 @@ import Button from "@material-ui/core/Button";
 import FormLabel from "@material-ui/core/FormLabel";
 import "../Assets/css/todo.css";
 export default class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      User: [
+        {
+          email: "",
+          password: ""
+        }
+      ]
+    };
+  }
+  getEmail(e) {
+    console.log(e);
+    this.state.User[0].email = e.target.value;
+    console.log(e);
+    this.setState({
+      User: this.state.User
+    });
+  }
+  getPassword(e) {
+    this.state.User[0].password = e.target.value;
+    this.setState({
+      User: this.state.User
+    });
+  }
+  submit() {
+    // if (this.state.User[0].email == "" && this.state.User[0].password == "") {
+    alert("The email id: " + this.state.User[0].email + " is verified");
+    // } else {
+    // alert("Please fill out all the fields");
+    // }
+  }
   render() {
     return (
       <div>
@@ -14,23 +46,27 @@ export default class Login extends Component {
             <FormLabel className="lab">Email</FormLabel>
             <center>
               <TextField
-                label="Email"
+                placeholder="Email"
                 type="email"
                 className="textf"
                 name="email"
                 autoComplete="email"
                 margin="normal"
+                required
                 variant="outlined"
+                onChange={this.getPassword.bind(this)}
               />
             </center>
             <FormLabel className="lab">Password</FormLabel>
             <center>
               <TextField
-                label="Password"
+                onChange={this.getPassword.bind(this)}
+                placeholder="Password"
                 type="password"
                 name="password"
                 className="textf"
                 margin="normal"
+                required
                 variant="outlined"
               />
             </center>
@@ -44,6 +80,7 @@ export default class Login extends Component {
                   background: "#2F4F4F",
                   color: "#fff"
                 }}
+                onClick={this.submit.bind(this)}
               >
                 Submit
               </Button>

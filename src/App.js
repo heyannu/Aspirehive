@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Calculator from "./Components/calculator";
 import Login from "./Components/login";
 import Register from "./Components/register";
+import Addtodo from "./Components/addtodo";
 import Home from "./Components/home";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -14,6 +15,7 @@ class App extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/calculator" component={Calculator} />
+          <Route exact path="/add" component={Addtodo} />
         </div>
       </Router>
     );

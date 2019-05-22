@@ -22,6 +22,15 @@ h3 {
   width: 20em;
   background: rgb(255, 255, 255, 0.7);
 }
+.output {
+  width: 100%;
+}
+.nums {
+  width: 100%;
+}
+.nums:hover {
+  background: #888888;
+}
 .header {
   height: 10em;
   border-bottom: 1px solid black;
