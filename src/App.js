@@ -3,7 +3,7 @@ import Calculator from "./Components/calculator";
 import Login from "./Components/login";
 import Register from "./Components/register";
 import Addtodo from "./Components/todo/addtodo";
-import Home from "./Components/home";
+
 import List from "./Components/todo/display";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
