@@ -57,7 +57,7 @@ export default class Register extends Component {
 
   render() {
     if (this.state.redirect === true) {
-      return <Redirect to={{ pathname: "/" }} />;
+      return <Redirect to={{ pathname: "/login" }} />;
     } else {
       return (
         <div>
