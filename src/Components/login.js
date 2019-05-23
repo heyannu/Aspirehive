@@ -47,7 +47,7 @@ export default class Login extends Component {
         <Redirect
           to={{
             pathname: "/todo",
-            state: { User: this.state.User }
+            state: { todo: "" }
           }}
         />
       );
