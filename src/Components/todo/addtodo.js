@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import Grid from "@material-ui/core/Grid";
-import "../Assets/css/todo.css";
-import SideNav from "./sidenav";
+import "../../Assets/css/todo.css";
+import New from "./new";
+import SideNav from "../sidenav";
 export default class Addtodo extends Component {
   render() {
     return (
@@ -31,10 +32,13 @@ export default class Addtodo extends Component {
               sm={9}
               lg={9}
               className="body_content"
-              style={{ marginTop: "5em", marginLeft: "3em" }}
+              style={{
+                marginTop: "8em",
+                marginLeft: "22em"
+              }}
             >
               <Grid container className="add">
-                <Addtodo />
+                <New />
               </Grid>
             </Grid>
           </Grid>

@@ -94,6 +94,18 @@ body {
 .textf {
   width: 60%;
 }
+.element:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
 .lab {
   margin-left: 20%;
+}
+.todof {
+  width: 100%;
+}
+.add {
+  color: #000;
+}
+.ic:hover {
+  color: red;
 }

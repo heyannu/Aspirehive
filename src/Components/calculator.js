@@ -14,7 +14,7 @@ export default class Calculator extends Component {
             <SideNav />
           </Grid>
           <Grid item xs={9} sm={9} lg={9} className="header">
-            <Grid item xs={11} sm={11} lg={11} className="hi">
+            <Grid item xs={11} sm={11} lg={11}>
               <div className="search">
                 <div className="searchIcon">
                   <SearchIcon />
