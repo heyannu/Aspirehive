@@ -5,6 +5,7 @@ import Screen from "./calculator/screen.js";
 import Grid from "@material-ui/core/Grid";
 import "../Assets/css/todo.css";
 import SideNav from "./sidenav";
+
 export default class Calculator extends Component {
   render() {
     return (
@@ -22,7 +23,12 @@ export default class Calculator extends Component {
                 </div>
               </div>
               <div className="user" style={{ float: "right" }}>
-                <h3>HI USERNAME</h3>
+                <h3>
+                  HI USERNAME
+                  <span style={{ marginLeft: "1em" }}>
+                    <i className="fa fa-user" />
+                  </span>
+                </h3>
               </div>
             </Grid>
 

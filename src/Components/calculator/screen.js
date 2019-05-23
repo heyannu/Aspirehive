@@ -135,7 +135,11 @@ export default class Screen extends Component {
                   readOnly: true
                 }}
                 value={this.state.total}
-                style={{ justifyContent: "right", background: "#fff" }}
+                style={{
+                  justifyContent: "right",
+                  background: "#fff",
+                  paddingTop: "1em"
+                }}
               />
             </div>
           </Grid>
@@ -147,7 +151,12 @@ export default class Screen extends Component {
                   readOnly: true
                 }}
                 value={this.state.a}
-                style={{ justifyContent: "right", background: "#fff" }}
+                style={{
+                  justifyContent: "right",
+
+                  background: "#fff",
+                  paddingTop: "1em"
+                }}
               />
             </div>
           </Grid>

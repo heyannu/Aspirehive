@@ -22,7 +22,12 @@ export default class Addtodo extends Component {
                 </div>
               </div>
               <div className="user" style={{ float: "right" }}>
-                <h3>HI USERNAME</h3>
+                <h3>
+                  HI USERNAME
+                  <span style={{ marginLeft: "1em" }}>
+                    <i className="fa fa-user" />
+                  </span>
+                </h3>
               </div>
             </Grid>
 
