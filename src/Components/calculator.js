@@ -32,7 +32,7 @@ export default class Calculator extends Component {
               sm={9}
               lg={9}
               className="body_content"
-              style={{ marginTop: "5em", marginLeft: "3em" }}
+              style={{ marginTop: "5em", marginLeft: "11em" }}
             >
               <h1>Calculator</h1>
               <Grid container className="calc">

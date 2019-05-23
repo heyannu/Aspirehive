@@ -109,3 +109,7 @@ body {
 .ic:hover {
   color: red;
 }
+.btns:hover {
+  background-color: #9885a5;
+  color: #fff;
+}

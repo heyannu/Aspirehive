@@ -24,7 +24,8 @@ export default class List extends Component {
         }
       ],
       open: false,
-      delete: false
+
+      removed: ""
     };
   }
   componentDidMount() {
@@ -39,35 +40,22 @@ export default class List extends Component {
     }
   }
   confirm() {
-    this.setState(
-      {
-        delete: true,
-        todos: this.state.todos
-      },
-      () => {
-        this.setState({ open: false });
+    for (var i = 0; i < this.state.todos.length; i++) {
+      if (this.state.todos[i].title == this.state.removed.title) {
+        this.state.todos.splice(i, 1);
+        this.setState({
+          todos: this.state.todos
+        });
       }
-    );
+      console.log(this.state.todos);
+    }
+    this.setState({ open: false });
   }
   cancel() {
-    this.setState({ open: false, delete: false });
+    this.setState({ open: false });
   }
   del(todo, e) {
-    this.setState({ open: true }, () => {
-      if (this.state.delete) {
-        for (var i = 0; i < this.state.todos.length; i++) {
-          if (this.state.todos[i].title == todo.title) {
-            this.state.todos.splice(i, 1);
-            this.setState({
-              todos: this.state.todos,
-              open: true,
-              delete: false
-            });
-          }
-          console.log(this.state.todos);
-        }
-      }
-    });
+    this.setState({ open: true, removed: todo });
   }
   render() {
     return (
@@ -85,16 +73,26 @@ export default class List extends Component {
                 }}
               >
                 <Button
-                  style={{ background: "red", color: "#fff", float: "left" }}
+                  style={{
+                    background: "#fff",
+                    color: "#b30000",
+                    float: "left"
+                  }}
+                  className="btns"
                   onClick={this.confirm.bind(this)}
                 >
-                  Yes
+                  <h4>Yes</h4>
                 </Button>
                 <Button
-                  style={{ background: "green", float: "right", color: "#fff" }}
+                  className="btns"
+                  style={{
+                    background: "#fff",
+                    float: "right",
+                    color: "#00b35a"
+                  }}
                   onClick={this.cancel.bind(this)}
                 >
-                  No
+                  <h4>No</h4>
                 </Button>
               </div>
             </center>
