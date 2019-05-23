@@ -15,11 +15,11 @@ export default class List extends Component {
     this.state = {
       todos: [
         {
-          title: "1",
+          title: "First Todo",
           description: "def"
         },
         {
-          title: "2",
+          title: "Second Todo",
           description: "abc"
         }
       ],
