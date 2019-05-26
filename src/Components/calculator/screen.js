@@ -9,271 +9,183 @@ export default class Screen extends Component {
     this.state = {
       a: "",
       sym: "",
-      total: 0
+      total: 0,
+      input1: "",
+      inputdisp: ""
     };
   }
-  one(num, e) {
-    this.state.a += num;
-    this.setState({
-      a: this.state.a
-    });
+  inputchange(e) {
+    // this.state.input = this.state.input + toString(e.target.value);
+    this.setState({ input1: e.target.value });
   }
-  two(num, e) {
-    this.state.a += num;
-    this.setState({
-      a: this.state.a
-    });
-  }
-  three(num, e) {
-    this.state.a += num;
-    this.setState({
-      a: this.state.a
-    });
-  }
-  four(num, e) {
-    this.state.a += num;
-    this.setState({
-      a: this.state.a
-    });
-  }
-  five(num, e) {
-    this.state.a += num;
-    this.setState({
-      a: this.state.a
-    });
-  }
-  six(num, e) {
-    this.state.a += num;
-    this.setState({
-      a: this.state.a
-    });
-  }
-  seven(num, e) {
-    this.state.a += num;
-    this.setState({
-      a: this.state.a
-    });
-  }
-  eight(num, e) {
-    this.state.a += num;
-    this.setState({
-      a: this.state.a
-    });
-  }
-  nine(num, e) {
-    this.state.a += num;
-    this.setState({
-      a: this.state.a
-    });
-  }
+  one(num, e) {}
+  two(num, e) {}
+  three(num, e) {}
+  four(num, e) {}
+  five(num, e) {}
+  six(num, e) {}
+  seven(num, e) {}
+  eight(num, e) {}
+  nine(num, e) {}
+  zero(num, e) {}
+
   plus(e) {
-    const b = parseInt(this.state.a);
+    this.state.inputdisp = this.state.inputdisp + this.state.input1 + "+";
     this.setState({
-      total: b,
-      a: "",
-      sym: "+"
+      inputdisp: this.state.inputdisp,
+      input1: ""
+    });
+  }
+
+  minus(e) {
+    this.state.inputdisp = this.state.inputdisp + this.state.input1 + "-";
+    this.setState({
+      inputdisp: this.state.inputdisp,
+      input1: ""
+    });
+  }
+
+  divide(e) {
+    this.state.inputdisp = this.state.inputdisp + this.state.input1 + "/";
+    this.setState({
+      inputdisp: this.state.inputdisp,
+      input1: ""
+    });
+  }
+
+  equal(e) {}
+
+  clearall() {
+    this.setState({
+      input1: "",
+      inputdisp: ""
     });
   }
   clear() {
     this.setState({
-      a: ""
+      input1: ""
     });
   }
-  minus(e) {
-    const b = parseInt(this.state.a);
-    this.setState({
-      total: b,
-      sym: "-",
-      a: ""
-    });
-  }
-  divide(e) {
-    const b = parseInt(this.state.a);
-    this.setState({
-      total: parseInt(this.state.a),
-      sym: "/",
-      a: ""
-    });
-  }
-  equal(e) {
-    if (this.state.sym == "+") {
-      const b = this.state.total + parseInt(this.state.a);
-      this.setState({
-        total: b,
-        a: ""
-      });
-    } else if (this.state.sym == "-") {
-      const b = this.state.total - parseInt(this.state.a);
-      this.setState({
-        total: b,
-        a: ""
-      });
-    } else if (this.state.sym == "/") {
-      const b = this.state.total / parseInt(this.state.a);
-      this.setState({
-        total: b,
-        a: ""
-      });
-    }
-  }
-  clearall() {
-    this.setState({
-      a: "",
-      total: 0
-    });
-  }
-
   render() {
     return (
       <div>
-        <Grid style={{ background: "#00364c", color: "#fff" }}>
-          <Grid lg={12} style={{ border: "0.5px solid white" }}>
-            <div style={{ width: "66.5em" }}>
-              <TextField
-                className="output"
-                InputProps={{
-                  readOnly: true
-                }}
-                value={this.state.total}
-                style={{
-                  justifyContent: "right",
-                  background: "#fff",
-                  paddingTop: "1em"
-                }}
+        <div
+          style={{
+            width: "40em",
+            padding: "2em",
+            backgroundColor: "rgba(255, 255, 255, 0.7)",
+            borderRadius: "1em"
+          }}
+          className="calc"
+        >
+          <div className="components">
+            <div className="c_component">
+              <input
+                style={{ width: "100%", height: "100%" }}
+                value={this.state.inputdisp}
+                disabled
               />
             </div>
-          </Grid>
-          <Grid lg={12} style={{ border: "1px solid white" }}>
-            <div style={{ width: "66.5em" }}>
-              <TextField
-                className="output"
-                InputProps={{
-                  readOnly: true
-                }}
-                value={this.state.a}
-                style={{
-                  justifyContent: "right",
+          </div>
+          <div className="components">
+            <div className="c_component">
+              <input
+                style={{ width: "100%", height: "100%" }}
+                value={this.state.input1}
+                onChange={this.inputchange.bind(this)}
+              />
+            </div>
+          </div>
 
-                  background: "#fff",
-                  paddingTop: "1em"
-                }}
-              />
+          <div className="components">
+            <div className="box">
+              <Button onClick={this.clearall.bind(this)} className="buttn">
+                <h5>clearall</h5>
+              </Button>
             </div>
-          </Grid>
-          <Grid container lg={12}>
-            <Grid style={{ border: "1px solid white" }} lg={4}>
-              <center>
-                <Button className="nums" onClick={this.clear.bind(this)}>
-                  <h4 style={{ color: "#fff" }}>CLEAR</h4>
-                </Button>
-              </center>
-            </Grid>
-            <Grid style={{ border: "1px solid white" }} lg={4}>
-              <center>
-                <Button className="nums" onClick={this.clearall.bind(this)}>
-                  <h4 style={{ color: "#fff" }}>CLEAR ALL</h4>
-                </Button>
-              </center>
-            </Grid>
-            <Grid style={{ border: "1px solid white" }} lg={4}>
-              <center>
-                <Button className="nums" onClick={this.divide.bind(this)}>
-                  <h4 style={{ color: "#fff" }}>/</h4>
-                </Button>
-              </center>
-            </Grid>
-          </Grid>
-          <Grid style={{ border: "1px solid white" }} container item lg={12}>
-            <Grid style={{ border: "1px solid white" }} lg={3}>
-              <center>
-                <Button className="nums" onClick={this.seven.bind(this, 7)}>
-                  <h4 style={{ color: "#fff" }}>7</h4>
-                </Button>
-              </center>
-            </Grid>
-            <Grid style={{ border: "1px solid white" }} lg={3}>
-              <center>
-                <Button className="nums" onClick={this.eight.bind(this, 8)}>
-                  <h4 style={{ color: "#fff" }}>8</h4>
-                </Button>
-              </center>
-            </Grid>
-            <Grid style={{ border: "1px solid white" }} lg={3}>
-              <center>
-                <Button className="nums" onClick={this.nine.bind(this, 9)}>
-                  <h4 style={{ color: "#fff" }}>9</h4>
-                </Button>
-              </center>
-            </Grid>
-            <Grid style={{ border: "1px solid white" }} lg={3}>
-              <center>
-                <Button className="nums" onClick={this.minus.bind(this)}>
-                  <h4 style={{ color: "#fff" }}>-</h4>
-                </Button>
-              </center>
-            </Grid>
-          </Grid>
-          <Grid style={{ border: "1px solid white" }} container item lg={12}>
-            <Grid style={{ border: "1px solid white" }} lg={3}>
-              <center>
-                <Button className="nums" onClick={this.four.bind(this, 4)}>
-                  <h4 style={{ color: "#fff" }}>4</h4>
-                </Button>
-              </center>
-            </Grid>
-            <Grid style={{ border: "1px solid white" }} lg={3}>
-              <center>
-                <Button className="nums" onClick={this.five.bind(this, 5)}>
-                  <h4 style={{ color: "#fff" }}>5</h4>
-                </Button>
-              </center>
-            </Grid>
-            <Grid style={{ border: "1px solid white" }} lg={3}>
-              <center>
-                <Button className="nums" onClick={this.six.bind(this, 6)}>
-                  <h4 style={{ color: "#fff" }}>6</h4>
-                </Button>
-              </center>
-            </Grid>
-            <Grid style={{ border: "1px solid white" }} lg={3}>
-              <center>
-                <Button className="nums" onClick={this.plus.bind(this)}>
-                  <h4 style={{ color: "#fff" }}>+</h4>
-                </Button>
-              </center>
-            </Grid>
-          </Grid>
-          <Grid style={{ border: "1px solid white" }} container item lg={12}>
-            <Grid style={{ border: "1px solid white" }} lg={3}>
-              <center>
-                <Button className="nums" onClick={this.one.bind(this, 1)}>
-                  <h4 style={{ color: "#fff" }}>1</h4>
-                </Button>
-              </center>
-            </Grid>
-            <Grid style={{ border: "1px solid white" }} lg={3}>
-              <center>
-                <Button className="nums" onClick={this.two.bind(this, 2)}>
-                  <h4 style={{ color: "#fff" }}>2</h4>
-                </Button>
-              </center>
-            </Grid>
-            <Grid style={{ border: "1px solid white" }} lg={3}>
-              <center>
-                <Button className="nums" onClick={this.three.bind(this, 3)}>
-                  <h4 style={{ color: "#fff" }}>3</h4>
-                </Button>
-              </center>
-            </Grid>
-            <Grid style={{ border: "1px solid white" }} lg={3}>
-              <center>
-                <Button className="nums" onClick={this.equal.bind(this)}>
-                  <h4 style={{ color: "#fff" }}>=</h4>
-                </Button>
-              </center>
-            </Grid>
-          </Grid>
-        </Grid>
+            <div className="cbox">
+              <Button onClick={this.clear.bind(this)} className="buttn">
+                <h5>clear</h5>
+              </Button>
+            </div>
+            <div className="c_component">
+              <Button onClick={this.zero.bind(this)} className="buttn">
+                <h5>0</h5>
+              </Button>
+            </div>
+            <div className="sbox">
+              <Button onClick={this.divide.bind(this)} className="buttn">
+                <h5>/</h5>
+              </Button>
+            </div>
+          </div>
+          <div className="components">
+            <div className="c_component">
+              <Button onClick={this.seven.bind(this)} className="buttn">
+                <h5>7</h5>
+              </Button>
+            </div>
+            <div className="c_component">
+              <Button onClick={this.eight.bind(this)} className="buttn">
+                <h5>8</h5>
+              </Button>
+            </div>
+            <div className="c_component">
+              <Button onClick={this.nine.bind(this)} className="buttn">
+                <h5>9</h5>
+              </Button>
+            </div>
+            <div className="sym">
+              <Button onClick={this.minus.bind(this)} className="buttn">
+                <h5>-</h5>
+              </Button>
+            </div>
+          </div>
+          <div className="components">
+            <div className="c_component">
+              <Button onClick={this.four.bind(this)} className="buttn">
+                <h5>4</h5>
+              </Button>
+            </div>
+            <div className="c_component">
+              <Button onClick={this.five.bind(this)} className="buttn">
+                <h5>5</h5>
+              </Button>
+            </div>
+            <div className="c_component">
+              <Button onClick={this.six.bind(this)} className="buttn">
+                <h5>6</h5>
+              </Button>
+            </div>
+            <div className="sym">
+              <Button onClick={this.plus.bind(this)} className="buttn">
+                <h5>+</h5>
+              </Button>
+            </div>
+          </div>
+          <div className="components">
+            <div className="c_component">
+              <Button onClick={this.three.bind(this)} className="buttn">
+                <h5>3</h5>
+              </Button>
+            </div>
+            <div className="c_component">
+              <Button onClick={this.two.bind(this)} className="buttn">
+                <h5>2</h5>
+              </Button>
+            </div>
+            <div className="c_component">
+              <Button onClick={this.one.bind(this)} className="buttn">
+                <h5>1</h5>
+              </Button>
+            </div>
+            <div className="sym">
+              <Button onClick={this.equal.bind(this)} className="buttn">
+                <h5>=</h5>
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
