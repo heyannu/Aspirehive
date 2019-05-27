@@ -103,15 +103,35 @@ export default class Screen extends Component {
       input1: output
     });
   }
-  decimal(e) {
+
+  multiply() {
+    this.state.input1 = this.state.input1 + "*";
+    this.setState({
+      input1: this.state.input1
+    });
+  }
+  mod() {
+    this.state.input1 = this.state.input1 + "%";
+    this.setState({
+      input1: this.state.input1
+    });
+  }
+  dot() {
     this.state.input1 = this.state.input1 + ".";
     this.setState({
       input1: this.state.input1
     });
   }
-  clearall() {
+  cb() {
+    this.state.input1 = this.state.input1 + ")";
     this.setState({
-      input: ""
+      input1: this.state.input1
+    });
+  }
+  ob() {
+    this.state.input1 = this.state.input1 + "(";
+    this.setState({
+      input1: this.state.input1
     });
   }
   clear() {
@@ -134,7 +154,12 @@ export default class Screen extends Component {
           <div className="components">
             <div className="c_component">
               <input
-                style={{ width: "100%", height: "100%" }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  direction: "rtl",
+                  fontWeight: "3em"
+                }}
                 value={this.state.input1}
                 onChange={this.inputchange.bind(this)}
               />
@@ -147,14 +172,14 @@ export default class Screen extends Component {
                 <h5>CLEAR</h5>
               </Button>
             </div>
-            <div className="c_component">
-              <Button onClick={this.zero.bind(this)} className="buttn">
-                <h5>0</h5>
+            <div className="sym">
+              <Button onClick={this.ob.bind(this)} className="buttn">
+                <h5>(</h5>
               </Button>
             </div>
-            <div className="c_component">
-              <Button onClick={this.decimal.bind(this)} className="buttn">
-                <h5>.</h5>
+            <div className="sym">
+              <Button onClick={this.cb.bind(this)} className="buttn">
+                <h5>)</h5>
               </Button>
             </div>
             <div className="sbox">
@@ -224,8 +249,30 @@ export default class Screen extends Component {
               </Button>
             </div>
             <div className="sym">
+              <Button onClick={this.multiply.bind(this)} className="buttn">
+                <h5>*</h5>
+              </Button>
+            </div>
+          </div>
+          <div className="components">
+            <div className="c_component">
+              <Button onClick={this.zero.bind(this)} className="buttn">
+                <h5>0</h5>
+              </Button>
+            </div>
+            <div className="c_component">
+              <Button onClick={this.dot.bind(this)} className="buttn">
+                <h5>.</h5>
+              </Button>
+            </div>
+            <div className="c_component">
               <Button onClick={this.equal.bind(this)} className="buttn">
                 <h5>=</h5>
+              </Button>
+            </div>
+            <div className="sym">
+              <Button onClick={this.mod.bind(this)} className="buttn">
+                <h5>%</h5>
               </Button>
             </div>
           </div>

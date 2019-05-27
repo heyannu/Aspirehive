@@ -129,7 +129,8 @@ export default class List extends Component {
               className="body_content"
               style={{
                 marginTop: "8em",
-                marginLeft: "12em"
+                marginLeft: "12em",
+                boxShadow: " 3px 3px 7px #9885a5"
               }}
             >
               <Grid

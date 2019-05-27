@@ -38,10 +38,12 @@ export default class Calculator extends Component {
               sm={9}
               lg={9}
               className="body_content"
-              style={{ marginTop: "7em", marginLeft: "21em" }}
+              style={{ marginTop: "7em", marginLeft: "24em" }}
             >
               <b>
-                <h1 style={{ fontFamily: "Rajdhani" }}>CALCULATOR</h1>
+                <h1 style={{ fontFamily: "Rajdhani", marginLeft: "5.4em" }}>
+                  CALCULATOR
+                </h1>
               </b>
               <Grid>
                 <Screen />
