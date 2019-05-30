@@ -157,7 +157,6 @@ export default class Screen extends Component {
                 style={{
                   width: "100%",
                   height: "100%",
-                  direction: "rtl",
                   fontWeight: "3em"
                 }}
                 value={this.state.input1}
